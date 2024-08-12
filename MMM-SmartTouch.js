@@ -39,9 +39,12 @@ Module.register("MMM-SmartTouch", {
     const modulesToHide = MM.getModules().exceptWithClass(
       this.config.excludeModules
     )
-    console.dir(modulesToHide[0]);
     modulesToHide.enumerate((module) => {
-      module.hide(1000);
+      if (module.hidden === true) {
+        module.show();
+      } else {
+        module.hide(1000);
+      }
     });
   },
 
