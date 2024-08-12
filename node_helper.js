@@ -25,7 +25,7 @@ module.exports = NodeHelper.create({
 
     if (notification === "SHUTDOWN") {
       console.log("Shutting down Rpi...")
-      require('child_process').exec('shutdown -h now', console.log)
+      require('child_process').exec('sudo shutdown -h now', console.log)
     }
 
     if (notification === "RESTART") {
