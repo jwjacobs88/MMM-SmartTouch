@@ -8,6 +8,7 @@
 
 Module.register("MMM-SmartTouch", {
   defaults: {
+    excludeModules: [],
   },
 
   start: function () {
@@ -35,12 +36,11 @@ Module.register("MMM-SmartTouch", {
   },
 
   toggleStandby: function () {
-    const existingBodyClass = document.body.className;
-    if (existingBodyClass === "st-standby show") {
-      document.body.className = "st-standby fade";
-    } else {
-      document.body.className = "st-standby show";
-    }
+    const modulesToHide = MM.getModules().exceptWithClass(
+      this.config.excludeModules
+    ).enumerate((module) => {
+      module.hide(1000);
+    });
   },
 
   createStandByButtonDiv: function () {
