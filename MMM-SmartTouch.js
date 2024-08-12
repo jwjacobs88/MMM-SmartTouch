@@ -38,7 +38,9 @@ Module.register("MMM-SmartTouch", {
   toggleStandby: function () {
     const modulesToHide = MM.getModules().exceptWithClass(
       this.config.excludeModules
-    ).enumerate((module) => {
+    )
+    console.dir(modulesToHide[0]);
+    modulesToHide.enumerate((module) => {
       module.hide(1000);
     });
   },
