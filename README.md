@@ -53,7 +53,7 @@ Here is an example for an entry in `config.js`
   module: 'MMM-SmartTouch', 
   position: 'bottom_center',    // This can be any of the regions.(bottom-center Recommended)
   config:{ 
-    // None configuration options defined 
+    excludeModules: ["MMM-SmartTouch"], // list of module names to exclude from standby
   }
 }
 ```
